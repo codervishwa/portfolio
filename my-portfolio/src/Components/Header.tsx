@@ -1,37 +1,40 @@
 import { IconVs } from "@tabler/icons-react";
+import SideBar from "./SideBar";
+
+const links = ["About", "Projects", "Skills", "Experience", "Contact"];
+const navLinks = (col: boolean, clicked?: () => void) => {
+  const handleClick = () => {
+    if (clicked) clicked();
+  };
+  return links.map((link, index) => {
+    return (
+      <a
+        key={index}
+        onClick={handleClick}
+        className={`${
+          col ? "flex flex-col items-center" : ""
+        } text-textColor text-lg font-mono hover:text-primaryColor`}
+        href={`#${link}`}
+      >
+        <span className="text-primaryColor">0{index + 1}. </span>
+        {link}
+      </a>
+    );
+  });
+};
 
 const Header = () => {
   return (
     <>
-      <nav className="flex bg-bgColor dm-mono-regular h-[15vh]  justify-between items-center px-10">
-        <IconVs stroke={1.25} size={60} color="#64ffda" />
+      <nav className="flex bg-bgColor  h-[15vh]  justify-between items-center px-10">
+        <IconVs className="z-10" stroke={1.25} size={60} color="#64ffda" />
 
-        <div className="flex gap-5">
-          <a className="text-textColor  hover:text-primaryColor" href="#about">
-            About
-          </a>
-          <a className="text-textColor  hover:text-primaryColor" href="#work">
-            Work
-          </a>
-          <a
-            className="text-textColor  hover:text-primaryColor"
-            href="#experience"
-          >
-            Experience
-          </a>
-          <a className="text-textColor  hover:text-primaryColor" href="#skills">
-            Skills
-          </a>
-          <a
-            className="text-textColor  hover:text-primaryColor"
-            href="#contact"
-          >
-            Contact
-          </a>
-        </div>
+        <div className="md:flex gap-8 hidden">{navLinks(false)}</div>
+        <SideBar />
       </nav>
     </>
   );
 };
 
 export default Header;
+export { navLinks };
