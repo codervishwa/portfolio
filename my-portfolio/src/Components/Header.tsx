@@ -1,16 +1,12 @@
 import { IconVs } from "@tabler/icons-react";
 import SideBar from "./SideBar";
 
-const links = ["About", "Projects", "Skills", "Experience", "Contact"];
-const navLinks = (col: boolean, clicked?: () => void) => {
-  const handleClick = () => {
-    if (clicked) clicked();
-  };
+const links = ["About", "Work", "Experience", "Skills", "Contact"];
+const navLinks = (col: boolean) => {
   return links.map((link, index) => {
     return (
       <a
         key={index}
-        onClick={handleClick}
         className={`${
           col ? "flex flex-col items-center" : ""
         } text-textColor text-lg font-mono hover:text-primaryColor`}

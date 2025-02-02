@@ -1,7 +1,13 @@
 import Header from "./Header";
+import Mail from "./Mail";
 
 const HomePage = () => {
-  return <Header />;
+  return (
+    <div>
+      <Header />
+      <Mail />
+    </div>
+  );
 };
 
 export default HomePage;

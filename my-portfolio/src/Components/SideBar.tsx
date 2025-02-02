@@ -20,8 +20,8 @@ const SideBar = () => {
           style={{ backgroundOpacity: 0.5, blur: 5 }}
         />
         <Drawer.Content className="!-z-0" bg={"#0a192f"}>
-          <Drawer.Body className="mt-20 flex flex-col" bg={"#0a192f"}>
-            {navLinks(false)}
+          <Drawer.Body className="mt-20 flex flex-col gap-5" bg={"#0a192f"}>
+            {navLinks(true)}
           </Drawer.Body>
         </Drawer.Content>
       </Drawer.Root>
